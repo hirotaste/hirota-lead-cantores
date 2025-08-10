@@ -2,22 +2,157 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    @apply bg-gray-100 text-gray-800;
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+/* Custom animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-h1, h2, h3, h4, h5, h6 {
-    @apply font-bold;
+@keyframes slideUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
 }
 
-a {
-    @apply text-blue-600 hover:text-blue-800;
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        @apply bg-accent text-dark font-body leading-relaxed;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-display font-bold;
+    }
+
+    h1 {
+        @apply text-4xl md:text-6xl;
+    }
+
+    h2 {
+        @apply text-3xl md:text-4xl;
+    }
+
+    h3 {
+        @apply text-2xl md:text-3xl;
+    }
 }
 
-.container {
-    @apply mx-auto px-4;
+@layer components {
+    /* CTA Button Styles */
+    .btn-primary {
+        @apply bg-gradient-to-r from-primary to-secondary text-white font-semibold py-3 px-6 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl;
+    }
+
+    .btn-secondary {
+        @apply border-2 border-primary text-primary font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:bg-primary hover:text-white;
+    }
+
+    .btn-floating {
+        @apply fixed bottom-6 right-6 bg-gradient-to-r from-primary to-secondary text-white p-4 rounded-full shadow-lg z-50 transform transition-all duration-300 hover:scale-110;
+    }
+
+    /* Section Styles */
+    .section-padding {
+        @apply py-16 md:py-24 px-4 md:px-6;
+    }
+
+    .container-custom {
+        @apply max-w-7xl mx-auto;
+    }
+
+    /* Card Styles */
+    .card {
+        @apply bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+    }
+
+    /* Gradient Backgrounds */
+    .bg-hero {
+        @apply bg-gradient-to-br from-primary via-secondary to-primary;
+    }
+
+    .bg-section {
+        @apply bg-gradient-to-r from-accent to-white;
+    }
+
+    /* Text Gradient */
+    .text-gradient {
+        @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+    }
+
+    /* Form Styles */
+    .form-input {
+        @apply w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300;
+    }
+
+    .form-textarea {
+        @apply w-full p-4 border border-gray-300 rounded-lg resize-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+        @apply fixed inset-0 bg-dark bg-opacity-95 z-50 transform transition-transform duration-300;
+    }
+
+    /* Music Player */
+    .music-player {
+        @apply bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300;
+    }
+
+    /* Gallery Grid */
+    .gallery-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+    }
+
+    /* Testimonial */
+    .testimonial {
+        @apply bg-white p-6 rounded-xl shadow-lg italic text-center;
+    }
+
+    /* Stats */
+    .stat-item {
+        @apply text-center p-6;
+    }
+
+    /* Navbar Sticky */
+    .navbar-sticky {
+        @apply sticky top-0 bg-white bg-opacity-95 backdrop-blur-sm shadow-md z-40 transition-all duration-300;
+    }
 }
 
-.footer {
-    @apply bg-gray-800 text-white py-4 text-center;
+/* Utility Classes */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.backdrop-filter {
+    backdrop-filter: blur(10px);
+}
+
+/* Responsive Video */
+.video-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-responsive iframe,
+.video-responsive object,
+.video-responsive embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
