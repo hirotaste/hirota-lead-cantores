@@ -1,0 +1,31 @@
+{
+  "name": "singer-portfolio-agency",
+  "version": "1.0.0",
+  "description": "A portfolio website for showcasing web development services for singers.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev & start http://localhost:3148",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "tailwindcss",
+    "portfolio",
+    "web development"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "tailwindcss": "latest"
+  },
+  "devDependencies": {
+    "typescript": "latest",
+    "@types/react": "latest",
+    "@types/node": "latest"
+  }
+}
