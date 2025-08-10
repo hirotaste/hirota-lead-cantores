@@ -4,7 +4,7 @@
   "description": "A portfolio website for showcasing web development services for singers.",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev & start http://localhost:3148",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
