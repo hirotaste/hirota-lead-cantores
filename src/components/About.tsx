@@ -5,17 +5,17 @@ const About: React.FC = () => {
         <section id="sobre" className="bg-section section-padding">
             <div className="container-custom">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    {/* Photo */}
+                    {/* Visual */}
                     <div className="order-2 lg:order-1">
                         <div className="relative">
                             <div className="aspect-square bg-gradient-to-br from-primary to-secondary rounded-2xl p-1">
                                 <div className="w-full h-full bg-gray-200 rounded-xl flex items-center justify-center">
-                                    {/* Placeholder for artist photo */}
+                                    {/* Agency visual placeholder */}
                                     <div className="text-center text-gray-500">
                                         <svg className="w-24 h-24 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.89 1 3 1.89 3 3V7H9V9H3V19C3 20.1 3.89 21 5 21H11V19H5V9H21ZM12 8C14.67 8 19 9.33 19 12V16H17V12.5C17 11 15.88 10.5 12 10.5S7 11 7 12.5V16H5V12C5 9.33 9.33 8 12 8Z"/>
+                                            <path d="M12 2L2 7V10C2 16 6 21.1 12 22C18 21.1 22 16 22 10V7L12 2Z"/>
                                         </svg>
-                                        <p className="text-sm">Foto Profissional</p>
+                                        <p className="text-sm">Vibe Studio Digital</p>
                                     </div>
                                 </div>
                             </div>
@@ -27,50 +27,63 @@ const About: React.FC = () => {
 
                     {/* Content */}
                     <div className="order-1 lg:order-2">
-                        <h2 className="text-gradient mb-6">Sobre Hirota</h2>
+                        <h2 className="text-gradient mb-6">Nossa Missão</h2>
                         
                         <div className="space-y-6 text-lg leading-relaxed">
                             <p>
-                                Olá! Sou <strong className="text-primary">Hirota</strong>, cantor e compositor apaixonado por transformar momentos especiais em memórias inesquecíveis através da música.
+                                Na <strong className="text-primary">Vibe Studio Digital</strong>, acreditamos que cada artista tem uma história única para contar e um som especial para compartilhar com o mundo.
                             </p>
                             
                             <p>
-                                Há mais de <strong className="text-secondary">5 anos</strong> levando emoção para casamentos, festas corporativas, eventos privados e apresentações ao vivo. Minha missão é criar uma atmosfera única que conecta pessoas através da música.
+                                Somos mais do que uma agência digital – somos o <strong className="text-secondary">elo entre seu talento e seu público</strong>. Transformamos sua paixão pela música em uma presença digital impactante.
                             </p>
                             
                             <p>
-                                Com um repertório que vai desde clássicos atemporais até os maiores sucessos atuais, adapto minha performance para cada ocasião, garantindo que seu evento seja <strong className="text-primary">verdadeiramente especial</strong>.
+                                Criamos sites personalizados que não apenas apresentam seu trabalho, mas <strong className="text-primary">amplificam sua voz</strong> no universo online.
                             </p>
                         </div>
 
-                        {/* Achievements */}
+                        {/* What We Do */}
+                        <div className="mt-8">
+                            <h3 className="text-2xl font-bold text-primary mb-4">O Que Fazemos</h3>
+                            <div className="space-y-3">
+                                <div className="flex items-start space-x-3">
+                                    <span className="text-2xl">🎵</span>
+                                    <div>
+                                        <strong>Sua Música, Seu Palco Digital</strong>
+                                        <p className="text-gray-600">Criamos sites que refletem sua identidade artística</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-start space-x-3">
+                                    <span className="text-2xl">🌐</span>
+                                    <div>
+                                        <strong>Conectando Artistas ao Público</strong>
+                                        <p className="text-gray-600">Presença digital completa e otimizada</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Stats */}
                         <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-6">
                             <div className="text-center p-4 bg-white rounded-xl shadow-lg">
-                                <div className="text-2xl font-bold text-primary">500K+</div>
-                                <div className="text-sm text-gray-600">Streams nas plataformas</div>
+                                <div className="text-2xl font-bold text-primary">100+</div>
+                                <div className="text-sm text-gray-600">Sites Criados</div>
                             </div>
                             <div className="text-center p-4 bg-white rounded-xl shadow-lg">
-                                <div className="text-2xl font-bold text-secondary">200+</div>
-                                <div className="text-sm text-gray-600">Shows realizados</div>
+                                <div className="text-2xl font-bold text-secondary">50+</div>
+                                <div className="text-sm text-gray-600">Artistas Atendidos</div>
                             </div>
                             <div className="text-center p-4 bg-white rounded-xl shadow-lg col-span-2 md:col-span-1">
                                 <div className="text-2xl font-bold text-primary">98%</div>
-                                <div className="text-sm text-gray-600">Clientes satisfeitos</div>
+                                <div className="text-sm text-gray-600">Satisfação</div>
                             </div>
-                        </div>
-
-                        {/* Testimonial */}
-                        <div className="mt-8 testimonial">
-                            <p className="text-gray-600 mb-4">
-                                "Hirota foi a escolha perfeita para nosso casamento. Sua voz emocionou todos os convidados e tornou nossa celebração ainda mais especial!"
-                            </p>
-                            <p className="text-primary font-semibold">- Marina & Carlos</p>
                         </div>
 
                         {/* CTA */}
                         <div className="mt-8">
-                            <a href="#contato" className="btn-primary inline-flex items-center space-x-2">
-                                <span>Conheça meu trabalho</span>
+                            <a href="#servicos" className="btn-primary inline-flex items-center space-x-2">
+                                <span>Conheça nossos serviços</span>
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
