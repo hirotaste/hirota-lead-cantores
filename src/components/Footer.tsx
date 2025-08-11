@@ -66,10 +66,11 @@ const Footer: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {/* Artist Info */}
                         <div className="lg:col-span-2">
-                            <h3 className="text-3xl font-display font-bold text-gradient mb-4">HIROTA</h3>
+                            <h3 className="text-3xl font-display font-bold text-gradient mb-4">VIBE STUDIO DIGITAL</h3>
+                            <p className="text-xl text-primary mb-2 font-medium">"Onde o talento encontra o mundo"</p>
                             <p className="text-gray-300 mb-6 leading-relaxed">
-                                Cantor e compositor que leva emoção através da música. 
-                                Transformando momentos especiais em memórias inesquecíveis há mais de 5 anos.
+                                Agência digital especializada em transformar a paixão musical em presença digital impactante. 
+                                Criamos sites e estratégias que conectam artistas brasileiros com seu público.
                             </p>
                             
                             {/* Contact Info */}
@@ -84,7 +85,7 @@ const Footer: React.FC = () => {
                                     <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
-                                    <span className="text-gray-300">contato@hirota.com.br</span>
+                                    <span className="text-gray-300">contato@vibestudiodigital.com.br</span>
                                 </div>
                             </div>
                         </div>
@@ -150,10 +151,10 @@ const Footer: React.FC = () => {
                         {/* Copyright */}
                         <div className="text-center md:text-right">
                             <p className="text-gray-400 text-sm">
-                                © {currentYear} Hirota. Todos os direitos reservados.
+                                © {currentYear} Vibe Studio Digital. Todos os direitos reservados.
                             </p>
                             <p className="text-gray-500 text-xs mt-1">
-                                Desenvolvido com ❤️ para levar música e emoção
+                                Desenvolvido com ❤️ para conectar talentos musicais
                             </p>
                         </div>
                     </div>
