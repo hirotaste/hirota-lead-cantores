@@ -1,7 +1,7 @@
 {
-  "name": "singer-portfolio-agency",
+  "name": "vibe-studio-digital",
   "version": "1.0.0",
-  "description": "A portfolio website for showcasing web development services for singers.",
+  "description": "Vibe Studio Digital - Agência digital especializada em sites para cantores, DJs e profissionais da música.",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
@@ -12,10 +12,12 @@
     "nextjs",
     "react",
     "tailwindcss",
-    "portfolio",
-    "web development"
+    "agencia-digital",
+    "sites-para-cantores",
+    "websites-musicos",
+    "brasil"
   ],
-  "author": "Your Name",
+  "author": "Vibe Studio Digital",
   "license": "MIT",
   "dependencies": {
     "next": "latest",

@@ -21,10 +21,10 @@ const Header: React.FC = () => {
 
     const menuItems = [
         { href: '#inicio', label: 'Início' },
-        { href: '#sobre', label: 'Sobre' },
-        { href: '#musicas', label: 'Músicas' },
-        { href: '#shows', label: 'Shows' },
-        { href: '#galeria', label: 'Galeria' },
+        { href: '#sobre', label: 'Nossa Missão' },
+        { href: '#servicos', label: 'Serviços' },
+        { href: '#diferenciais', label: 'Diferenciais' },
+        { href: '#publico', label: 'Para Quem' },
         { href: '#contato', label: 'Contato' },
     ];
 
@@ -37,7 +37,7 @@ const Header: React.FC = () => {
                     {/* Logo/Artist Name */}
                     <div className="flex items-center">
                         <Link href="#inicio" className="text-2xl md:text-3xl font-display font-bold text-gradient">
-                            HIROTA
+                            VIBE STUDIO
                         </Link>
                     </div>
 
@@ -56,7 +56,7 @@ const Header: React.FC = () => {
                             href="#contato"
                             className="btn-primary ml-4"
                         >
-                            CONTRATE PARA SHOWS
+                            SOLICITAR ORÇAMENTO
                         </Link>
                     </nav>
 
@@ -101,7 +101,7 @@ const Header: React.FC = () => {
                         onClick={() => setIsMenuOpen(false)}
                         className="btn-primary text-lg"
                     >
-                        CONTRATE PARA SHOWS
+                        SOLICITAR ORÇAMENTO
                     </Link>
                 </div>
             </div>

@@ -5,12 +5,12 @@ import WhatsAppFloat from '../components/WhatsAppFloat';
 import '../styles/globals.css';
 
 export const metadata = {
-  title: 'Hirota - Cantor e Compositor | Shows e Eventos',
-  description: 'Contrate Hirota para seu evento. Cantor e compositor que leva emoção através da música. Shows inesquecíveis para casamentos, festas e eventos corporativos.',
-  keywords: 'cantor, compositor, shows, eventos, música, casamento, festa, entretenimento',
+  title: 'Vibe Studio Digital | Agência Digital para Músicos e Cantores',
+  description: 'Onde o talento encontra o mundo. Criamos sites profissionais para cantores, DJs, produtores musicais e artistas brasileiros. Transformamos sua paixão em presença digital impactante.',
+  keywords: 'agência digital, sites para cantores, websites para músicos, DJs, produtores musicais, marketing digital música, Brasil',
   openGraph: {
-    title: 'Hirota - Cantor e Compositor | Shows e Eventos',
-    description: 'Contrate Hirota para seu evento. Cantor e compositor que leva emoção através da música.',
+    title: 'Vibe Studio Digital | Onde o talento encontra o mundo',
+    description: 'Criamos sites profissionais para cantores, DJs e produtores musicais brasileiros.',
     type: 'website',
     locale: 'pt_BR',
   }

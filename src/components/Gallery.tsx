@@ -1,278 +1,206 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 
-interface GalleryImage {
+interface TargetAudience {
     id: number;
-    src: string;
-    alt: string;
-    category: 'shows' | 'bastidores' | 'sessoes';
     title: string;
+    description: string;
+    icon: string;
+    characteristics: string[];
+    examples: string[];
 }
 
-const Gallery: React.FC = () => {
-    const [selectedCategory, setSelectedCategory] = useState<'all' | 'shows' | 'bastidores' | 'sessoes'>('all');
-    const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
-
-    const images: GalleryImage[] = [
+const TargetAudience: React.FC = () => {
+    const audienceTypes: TargetAudience[] = [
         {
             id: 1,
-            src: '/images/gallery/show1.jpg',
-            alt: 'Show no Centro de Eventos Paradise',
-            category: 'shows',
-            title: 'Show no Centro de Eventos Paradise'
+            title: "Cantores",
+            description: "Em início de carreira ou já estabelecidos",
+            icon: "🎤",
+            characteristics: [
+                "Buscam profissionalizar a presença online",
+                "Querem conectar com mais fãs",
+                "Precisam de um site que reflita sua personalidade"
+            ],
+            examples: ["Cantores independentes", "Artistas em ascensão", "Veteranos da música brasileira"]
         },
         {
             id: 2,
-            src: '/images/gallery/bastidores1.jpg',
-            alt: 'Preparação nos bastidores',
-            category: 'bastidores',
-            title: 'Preparação nos bastidores'
+            title: "DJs",
+            description: "Que querem expandir sua base de fãs",
+            icon: "🎧",
+            characteristics: [
+                "Precisam divulgar seus sets",
+                "Querem booking para eventos",
+                "Buscam maior visibilidade online"
+            ],
+            examples: ["DJs de festa", "Produtores de house/techno", "DJs de casamentos e eventos"]
         },
         {
             id: 3,
-            src: '/images/gallery/sessao1.jpg',
-            alt: 'Sessão de fotos promocional',
-            category: 'sessoes',
-            title: 'Sessão de fotos promocional'
+            title: "Produtores Musicais",
+            description: "Buscando maior visibilidade",
+            icon: "🎵",
+            characteristics: [
+                "Querem showcasing do portfólio",
+                "Precisam atrair novos artistas",
+                "Buscam parcerias profissionais"
+            ],
+            examples: ["Beatmakers", "Produtores de estúdio", "Sound designers", "Produtores independentes"]
         },
         {
             id: 4,
-            src: '/images/gallery/show2.jpg',
-            alt: 'Apresentação em casamento',
-            category: 'shows',
-            title: 'Apresentação em casamento'
+            title: "Bandas Independentes",
+            description: "Em busca de reconhecimento",
+            icon: "🎸",
+            characteristics: [
+                "Querem divulgar seu trabalho",
+                "Precisam vender shows",
+                "Buscam crescer a base de fãs"
+            ],
+            examples: ["Bandas de rock nacional", "Grupos de MPB", "Bandas autorais", "Conjuntos regionais"]
         },
         {
             id: 5,
-            src: '/images/gallery/bastidores2.jpg',
-            alt: 'Momento de descontração',
-            category: 'bastidores',
-            title: 'Momento de descontração'
-        },
-        {
-            id: 6,
-            src: '/images/gallery/sessao2.jpg',
-            alt: 'Ensaio no estúdio',
-            category: 'sessoes',
-            title: 'Ensaio no estúdio'
-        },
-        {
-            id: 7,
-            src: '/images/gallery/show3.jpg',
-            alt: 'Show em evento corporativo',
-            category: 'shows',
-            title: 'Show em evento corporativo'
-        },
-        {
-            id: 8,
-            src: '/images/gallery/bastidores3.jpg',
-            alt: 'Interação com fãs',
-            category: 'bastidores',
-            title: 'Interação com fãs'
-        },
-        {
-            id: 9,
-            src: '/images/gallery/sessao3.jpg',
-            alt: 'Gravação do novo clipe',
-            category: 'sessoes',
-            title: 'Gravação do novo clipe'
+            title: "Criadores de Conteúdo Musical",
+            description: "Artistas que querem profissionalizar sua presença online",
+            icon: "⭐",
+            characteristics: [
+                "Monetizar seu talento",
+                "Construir uma marca pessoal",
+                "Conectar com audiência certa"
+            ],
+            examples: ["Compositores", "Instrumentistas", "YouTubers musicais", "Artistas multimídia"]
         }
     ];
-
-    const categories = [
-        { key: 'all', label: 'Todas', count: images.length },
-        { key: 'shows', label: 'Shows', count: images.filter(img => img.category === 'shows').length },
-        { key: 'bastidores', label: 'Bastidores', count: images.filter(img => img.category === 'bastidores').length },
-        { key: 'sessoes', label: 'Sessões', count: images.filter(img => img.category === 'sessoes').length }
-    ];
-
-    const filteredImages = selectedCategory === 'all' 
-        ? images 
-        : images.filter(img => img.category === selectedCategory);
-
-    const openLightbox = (image: GalleryImage) => {
-        setSelectedImage(image);
-        document.body.style.overflow = 'hidden';
-    };
-
-    const closeLightbox = () => {
-        setSelectedImage(null);
-        document.body.style.overflow = 'unset';
-    };
-
-    const navigateImage = (direction: 'prev' | 'next') => {
-        if (!selectedImage) return;
-        
-        const currentIndex = filteredImages.findIndex(img => img.id === selectedImage.id);
-        let newIndex;
-        
-        if (direction === 'prev') {
-            newIndex = currentIndex > 0 ? currentIndex - 1 : filteredImages.length - 1;
-        } else {
-            newIndex = currentIndex < filteredImages.length - 1 ? currentIndex + 1 : 0;
-        }
-        
-        setSelectedImage(filteredImages[newIndex]);
-    };
-
-    // Mock image placeholder component
-    const ImagePlaceholder: React.FC<{ title: string; category: string }> = ({ title, category }) => {
-        const getIcon = () => {
-            switch (category) {
-                case 'shows':
-                    return (
-                        <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.89 1 3 1.89 3 3V7H9V9H3V19C3 20.1 3.89 21 5 21H11V19H5V9H21ZM12 8C14.67 8 19 9.33 19 12V16H17V12.5C17 11 15.88 10.5 12 10.5S7 11 7 12.5V16H5V12C5 9.33 9.33 8 12 8Z"/>
-                        </svg>
-                    );
-                case 'bastidores':
-                    return (
-                        <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20,4H16.83L15,2H9L7.17,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6A2,2 0 0,0 20,4M20,18H4V6H8.05L9.88,4H14.12L15.95,6H20V18M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7M12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15Z"/>
-                        </svg>
-                    );
-                case 'sessoes':
-                    return (
-                        <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M4,6H2V20A2,2 0 0,0 4,22H18V20H4V6M20,2H8A2,2 0 0,0 6,4V16A2,2 0 0,0 8,18H20A2,2 0 0,0 22,16V4A2,2 0 0,0 20,2M20,16H8V4H20V16M12,5.5V13.5L18,9.5L12,5.5Z"/>
-                        </svg>
-                    );
-                default:
-                    return (
-                        <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-                        </svg>
-                    );
-            }
-        };
-
-        return (
-            <div className="w-full h-full bg-gradient-to-br from-primary to-secondary flex flex-col items-center justify-center text-white p-4">
-                {getIcon()}
-                <p className="text-sm text-center mt-2 font-medium">{title}</p>
-            </div>
-        );
-    };
 
     return (
-        <section id="galeria" className="section-padding bg-white">
+        <section id="publico" className="section-padding bg-white">
             <div className="container-custom">
                 {/* Section Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-gradient mb-6">Galeria</h2>
+                    <h2 className="text-gradient mb-6">Para Quem Trabalhamos</h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Momentos especiais capturados em cada apresentação. 
-                        Veja a energia e emoção que levo para cada evento.
+                        Atendemos todos os profissionais do universo musical brasileiro que querem 
+                        transformar seu talento em uma presença digital impactante e profissional.
                     </p>
                 </div>
 
-                {/* Category Filter */}
-                <div className="flex flex-wrap justify-center gap-4 mb-12">
-                    {categories.map((category) => (
-                        <button
-                            key={category.key}
-                            onClick={() => setSelectedCategory(category.key as any)}
-                            className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                                selectedCategory === category.key
-                                    ? 'bg-primary text-white shadow-lg'
-                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                            }`}
-                        >
-                            {category.label} ({category.count})
-                        </button>
-                    ))}
-                </div>
-
-                {/* Gallery Grid */}
-                <div className="gallery-grid">
-                    {filteredImages.map((image) => (
-                        <div
-                            key={image.id}
-                            className="aspect-square bg-gray-200 rounded-xl overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
-                            onClick={() => openLightbox(image)}
-                        >
-                            <ImagePlaceholder title={image.title} category={image.category} />
-                        </div>
-                    ))}
-                </div>
-
-                {filteredImages.length === 0 && (
-                    <div className="text-center py-12">
-                        <p className="text-gray-500 text-lg">Nenhuma imagem encontrada nesta categoria.</p>
-                    </div>
-                )}
-
-                {/* Lightbox */}
-                {selectedImage && (
-                    <div 
-                        className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
-                        onClick={closeLightbox}
-                    >
-                        <div className="relative max-w-4xl max-h-full w-full h-full flex items-center justify-center">
-                            {/* Close Button */}
-                            <button
-                                onClick={closeLightbox}
-                                className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition-colors duration-300 z-10"
-                            >
-                                ×
-                            </button>
-
-                            {/* Previous Button */}
-                            <button
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    navigateImage('prev');
-                                }}
-                                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl hover:text-gray-300 transition-colors duration-300 z-10"
-                            >
-                                ‹
-                            </button>
-
-                            {/* Next Button */}
-                            <button
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    navigateImage('next');
-                                }}
-                                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl hover:text-gray-300 transition-colors duration-300 z-10"
-                            >
-                                ›
-                            </button>
-
-                            {/* Image */}
-                            <div 
-                                className="max-w-full max-h-full bg-white rounded-lg overflow-hidden"
-                                onClick={(e) => e.stopPropagation()}
-                            >
-                                <div className="aspect-square max-w-3xl max-h-[80vh] bg-gray-100">
-                                    <ImagePlaceholder title={selectedImage.title} category={selectedImage.category} />
+                {/* Target Audience Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    {audienceTypes.map((audience) => (
+                        <div key={audience.id} className="card hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                            <div className="p-8">
+                                {/* Icon and Title */}
+                                <div className="text-center mb-6">
+                                    <div className="text-5xl mb-4">{audience.icon}</div>
+                                    <h3 className="text-xl font-bold text-primary mb-2">{audience.title}</h3>
+                                    <p className="text-gray-600 text-sm">{audience.description}</p>
                                 </div>
-                                
-                                {/* Image Info */}
-                                <div className="p-6 bg-white">
-                                    <h3 className="text-xl font-bold mb-2">{selectedImage.title}</h3>
-                                    <div className="flex items-center space-x-4 text-gray-600">
-                                        <span className="capitalize">{selectedImage.category}</span>
-                                        <span>•</span>
-                                        <span>{filteredImages.findIndex(img => img.id === selectedImage.id) + 1} de {filteredImages.length}</span>
+
+                                {/* Characteristics */}
+                                <div className="mb-6">
+                                    <h4 className="font-semibold text-dark mb-3">Características:</h4>
+                                    <ul className="space-y-2">
+                                        {audience.characteristics.map((characteristic, index) => (
+                                            <li key={index} className="flex items-start space-x-2">
+                                                <svg className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                                </svg>
+                                                <span className="text-sm text-gray-600">{characteristic}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                {/* Examples */}
+                                <div>
+                                    <h4 className="font-semibold text-dark mb-3">Exemplos:</h4>
+                                    <div className="flex flex-wrap gap-2">
+                                        {audience.examples.map((example, index) => (
+                                            <span key={index} className="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">
+                                                {example}
+                                            </span>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                )}
+                    ))}
+                </div>
 
-                {/* Download Press Kit */}
-                <div className="mt-16 text-center">
-                    <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-white">
-                        <h3 className="text-2xl font-bold mb-4">Kit de Imprensa</h3>
-                        <p className="mb-6 opacity-90">
-                            Baixe fotos profissionais em alta resolução e material promocional para divulgação.
+                {/* Success Stories Section */}
+                <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-white mb-16">
+                    <h3 className="text-2xl font-bold text-center mb-8">Histórias de Sucesso</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="text-center">
+                            <div className="text-3xl font-bold mb-2">150%</div>
+                            <div className="text-sm opacity-90">Aumento médio de engajamento online</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-3xl font-bold mb-2">85%</div>
+                            <div className="text-sm opacity-90">Dos clientes conseguem mais shows</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-3xl font-bold mb-2">3x</div>
+                            <div className="text-sm opacity-90">Mais descobertas nas plataformas digitais</div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Testimonials */}
+                <div className="mb-16">
+                    <h3 className="text-2xl font-bold text-center mb-12">O Que Nossos Clientes Dizem</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div className="testimonial">
+                            <p className="text-gray-600 mb-4">
+                                "A Vibe Studio transformou completamente minha presença online. Agora recebo muito mais convites para shows!"
+                            </p>
+                            <p className="text-primary font-semibold">- Marina Silva, Cantora</p>
+                        </div>
+                        <div className="testimonial">
+                            <p className="text-gray-600 mb-4">
+                                "Site incrível que realmente capturou a essência da nossa banda. Nossos fãs adoraram!"
+                            </p>
+                            <p className="text-primary font-semibold">- Banda Raízes do Sertão</p>
+                        </div>
+                        <div className="testimonial">
+                            <p className="text-gray-600 mb-4">
+                                "Profissionalismo e qualidade excepcionais. Recomendo para todos os DJs!"
+                            </p>
+                            <p className="text-primary font-semibold">- DJ Carlos Beat</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* CTA Section */}
+                <div className="text-center">
+                    <div className="bg-white rounded-2xl shadow-xl p-8 max-w-2xl mx-auto">
+                        <h3 className="text-2xl font-bold mb-4">Você se identifica com algum desses perfis?</h3>
+                        <p className="text-gray-600 mb-6">
+                            Seja qual for seu estilo musical ou estágio da carreira, temos a solução perfeita 
+                            para amplificar sua presença digital e conectar você com seu público.
                         </p>
-                        <button className="btn-secondary bg-white text-primary hover:bg-gray-100 hover:text-primary border-white">
-                            Download Press Kit
-                        </button>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="#contato" className="btn-primary inline-flex items-center space-x-2">
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                </svg>
+                                <span>Começar Meu Projeto</span>
+                            </a>
+                            <a 
+                                href="https://wa.me/5511999999999?text=Olá! Sou um(a) [SEU PERFIL] e gostaria de saber mais sobre como a Vibe Studio Digital pode me ajudar."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-secondary inline-flex items-center space-x-2"
+                            >
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.690"/>
+                                </svg>
+                                <span>Falar no WhatsApp</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -280,4 +208,4 @@ const Gallery: React.FC = () => {
     );
 };
 
-export default Gallery;
+export default TargetAudience;
