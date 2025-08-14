@@ -5,19 +5,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Singer website color palette - Bright and energetic
-        primary: '#F39C12', // Golden yellow
-        secondary: '#E67E22', // Vibrant orange
-        accent: '#ECF0F1', // Soft white
-        dark: '#2C3E50', // Dark blue-gray
+        // Professional music industry color palette - Trust & Credibility
+        primary: '#1E40AF', // Deep blue - trust, professionalism
+        secondary: '#7C3AED', // Rich purple - creativity, artistic
+        accent: '#F8FAFC', // Clean white
+        dark: '#0F172A', // Rich dark slate
         light: '#FFFFFF',
-        // Gradient combinations
-        'gradient-start': '#F39C12',
-        'gradient-end': '#E67E22',
+        success: '#059669', // Emerald green for success states
+        warning: '#D97706', // Amber for attention
+        // Modern gradient combinations
+        'gradient-start': '#1E40AF',
+        'gradient-end': '#7C3AED',
+        // Additional professional tones
+        'blue-deep': '#1E3A8A',
+        'purple-rich': '#6D28D9',
+        'slate-cool': '#64748B',
+        'gray-warm': '#6B7280',
       },
       fontFamily: {
-        'display': ['Oswald', 'system-ui', 'sans-serif'], // Bold display font for artist name
-        'body': ['Open Sans', 'system-ui', 'sans-serif'], // Readable body text
+        'display': ['Oswald', 'system-ui', 'sans-serif'], // Bold display font for brand impact
+        'body': ['Open Sans', 'system-ui', 'sans-serif'], // Clean, readable body text
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

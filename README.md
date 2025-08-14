@@ -1,51 +1,63 @@
-# Singer Portfolio Agency
+# Vibe Studio Digital
 
-Welcome to the Singer Portfolio Agency project! This is a Next.js application designed to showcase the work of a web developer specializing in creating websites for singers. The site serves as a portfolio and a lead capture tool for potential clients.
+Bem-vindo ao Vibe Studio Digital! Esta é uma aplicação Next.js desenvolvida para captar leads de profissionais da música que desejam criar sites profissionais. Somos uma agência digital especializada em conectar talentos musicais ao mundo através de presenças digitais impactantes.
 
-## Features
+## Características
 
-- **Homepage**: Highlights the main services offered and includes a hero section with a call to action.
-- **About Page**: Provides information about the developer, their background, and the services they offer.
-- **Portfolio Page**: Displays a collection of previous work, showcasing websites created for various singers.
-- **Contact Page**: Includes a contact form for potential clients to reach out for inquiries.
+- **Homepage**: Destaca os principais serviços oferecidos com seção hero e call-to-action otimizados para conversão.
+- **Página Sobre**: Apresenta nossa missão de conectar artistas ao público através de soluções digitais personalizadas.
+- **Portfólio**: Exibe uma coleção de trabalhos anteriores, demonstrando sites criados para diversos profissionais da música.
+- **Página de Contato**: Inclui formulário de contato otimizado para captação de leads de potenciais clientes.
+- **Para Quem Trabalhamos**: Seção dedicada aos diferentes perfis de profissionais da música que atendemos.
+- **Diferenciais**: Destaca nossa proposta de valor e o que nos torna únicos no mercado.
 
-## Technologies Used
+## Tecnologias Utilizadas
 
-- **Next.js**: A React framework for building server-rendered applications.
-- **React**: A JavaScript library for building user interfaces.
-- **Tailwind CSS**: A utility-first CSS framework for styling the application.
-- **TypeScript**: A superset of JavaScript that adds static types.
+- **Next.js**: Framework React para aplicações com renderização no servidor.
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **Tailwind CSS**: Framework CSS utility-first para estilização moderna e responsiva.
+- **TypeScript**: Superset do JavaScript que adiciona tipagem estática.
 
-## Getting Started
+## Como Começar
 
-To get started with the project, follow these steps:
+Para iniciar o projeto, siga estes passos:
 
-1. Clone the repository:
+1. Clone o repositório:
    ```
-   git clone https://github.com/yourusername/singer-portfolio-agency.git
-   ```
-
-2. Navigate to the project directory:
-   ```
-   cd singer-portfolio-agency
+   git clone https://github.com/hirotaste/hirota-lead-cantores.git
    ```
 
-3. Install the dependencies:
+2. Navegue para o diretório do projeto:
+   ```
+   cd hirota-lead-cantores
+   ```
+
+3. Instale as dependências:
    ```
    npm install
    ```
 
-4. Run the development server:
+4. Execute o servidor de desenvolvimento:
    ```
    npm run dev
    ```
 
-5. Open your browser and go to `http://localhost:3000` to see the application in action.
+5. Abra seu navegador e acesse `http://localhost:3456` para ver a aplicação em funcionamento.
 
-## Contributing
+## Público-Alvo
 
-If you would like to contribute to this project, please fork the repository and submit a pull request with your changes.
+Nossa plataforma é especializada em atender diversos perfis de profissionais da música:
 
-## License
+- **Cantores Solo**: Artistas em início de carreira ou já estabelecidos
+- **DJs**: Profissionais que precisam de presença digital para eventos
+- **Produtores Musicais**: Busca de maior visibilidade e networking
+- **Bandas Independentes**: Em busca de reconhecimento e growth
+- **Criadores de Conteúdo Musical**: Artistas que querem profissionalizar sua presença online
 
-This project is open-source and available under the [MIT License](LICENSE).
+## Contribuindo
+
+Se você gostaria de contribuir com este projeto, por favor faça um fork do repositório e envie um pull request com suas alterações.
+
+## Licença
+
+Este projeto é open-source e está disponível sob a [Licença MIT](LICENSE).
